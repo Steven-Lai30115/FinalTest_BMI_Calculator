@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     var selectedGender: String = "Male"
     var selectedMode: String = "Metric"
-    
+    var calculateResult: Float = 0.0
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -69,6 +69,7 @@ class ViewController: UIViewController {
             return
         }
     
+        calculateBMI()
     }
     
     @IBAction func onDoneBtnClick(_ sender: UIButton) {
@@ -76,6 +77,7 @@ class ViewController: UIViewController {
             showAlert(message: "Please calculate the BMI first")
             return
         }
+        createItem()
     }
     
     
@@ -86,51 +88,69 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    // calculate the BMI and round the result to two decimal places
     func calculateBMI(){
         switch selectedMode {
             case "Metric":
+                calculateResult = (Float(weightTextField.text!)!) / ((Float(heightTextField.text!)! ) * (Float(heightTextField.text!)!))
                 break
             case "Imperial":
+                calculateResult = (Float(weightTextField.text!)! * 703) / ((Float(heightTextField.text!)! ) * (Float(heightTextField.text!)!))
                 break
             default:
                 return
         }
+        
+        calculateResult = round(calculateResult * 100) / 100.0
+        bmiCategoryLabel.text = getCategory(value: calculateResult)
+        bmiResultLabel.text = String(calculateResult)
     }
     
     
-    func getAllItems(){
-        do{
-            let items = try context.fetch(BMIItem.fetchRequest())
-        } catch {
-            // Error
+    // return the category string based on the input value
+    func getCategory(value: Float) -> String{
+        if(value < 16){
+            return "Severe Thinness"
+        } else if (value >= 16 && value < 17){
+            return "Moderate Thinness"
+        } else if (value >= 17 && value < 18.5){
+            return "Mild Thinness"
+        } else if (value >= 18.5 && value < 25){
+            return "Normal"
+        } else if (value >= 25 && value < 30){
+            return "Overweight"
+        } else if (value >= 30 && value < 35){
+            return "Obese Class I"
+        } else if (value >= 35 && value < 40){
+            return "Obese Class II"
+        } else if (value > 40) {
+            return "Obese Class III"
         }
+        return ""
     }
     
-    func createItem(name: String){
+   
+    
+    // Create core data item
+    func createItem(){
         let newItem = BMIItem(context: context)
         // assign date to item
-        
+        newItem.bmi = calculateResult
+        newItem.weight = Float(weightTextField.text!)!
+        newItem.height = Float(heightTextField.text!)!
+        newItem.mode = selectedMode
+        newItem.date = Date()
         do {
             try context.save()
         } catch {
             // Error
         }
     }
-    
-    func deleteItem(item: BMIItem){
-        context.delete(item)
-        
-        do {
-            try context.save()
-        } catch {
-            // Error
-        }
-    }
-    
-    func updateItem(item: BMIItem){
-        
-    }
-
 }
 
+extension String {
+    var isNumber: Bool {
+        let digitsCharacters = CharacterSet(charactersIn: "0123456789")
+        return CharacterSet(charactersIn: self).isSubset(of: digitsCharacters)
+    }
+}

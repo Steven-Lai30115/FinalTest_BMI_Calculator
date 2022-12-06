@@ -14,10 +14,11 @@
 		7AD8FEF2293EE15100663D51 /* BMI_calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FEF0293EE15100663D51 /* BMI_calculator.xcdatamodeld */; };
 		7AD8FEF4293EE15200663D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8FEF3293EE15200663D51 /* Assets.xcassets */; };
 		7AD8FEF7293EE15200663D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8FEF5293EE15200663D51 /* LaunchScreen.storyboard */; };
-		7AD8FF00293EFC5D00663D51 /* BMIItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FEFE293EFC5D00663D51 /* BMIItem+CoreDataClass.swift */; };
-		7AD8FF01293EFC5D00663D51 /* BMIItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FEFF293EFC5D00663D51 /* BMIItem+CoreDataProperties.swift */; };
 		7AD8FF06293EFD1100663D51 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FF05293EFD1100663D51 /* TrackingViewController.swift */; };
 		7AD8FF08293EFF0300663D51 /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FF07293EFF0300663D51 /* TrackingTableViewCell.swift */; };
+		7AD8FF11293FA84E00663D51 /* BMIItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FF0F293FA84E00663D51 /* BMIItem+CoreDataClass.swift */; };
+		7AD8FF12293FA84E00663D51 /* BMIItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FF10293FA84E00663D51 /* BMIItem+CoreDataProperties.swift */; };
+		7AD8FF14293FC02900663D51 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8FF13293FC02900663D51 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,11 @@
 		7AD8FEF3293EE15200663D51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AD8FEF6293EE15200663D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AD8FEF8293EE15200663D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AD8FEFE293EFC5D00663D51 /* BMIItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMIItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7AD8FEFF293EFC5D00663D51 /* BMIItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMIItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AD8FF05293EFD1100663D51 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		7AD8FF07293EFF0300663D51 /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
+		7AD8FF0F293FA84E00663D51 /* BMIItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMIItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7AD8FF10293FA84E00663D51 /* BMIItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMIItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7AD8FF13293FC02900663D51 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,7 @@
 			children = (
 				7AD8FF02293EFC6C00663D51 /* BMIItem */,
 				7AD8FF07293EFF0300663D51 /* TrackingTableViewCell.swift */,
-				7AD8FEFE293EFC5D00663D51 /* BMIItem+CoreDataClass.swift */,
+				7AD8FF13293FC02900663D51 /* DetailViewController.swift */,
 				7AD8FF05293EFD1100663D51 /* TrackingViewController.swift */,
 				7AD8FEE7293EE15100663D51 /* AppDelegate.swift */,
 				7AD8FEE9293EE15100663D51 /* SceneDelegate.swift */,
@@ -85,7 +87,8 @@
 		7AD8FF02293EFC6C00663D51 /* BMIItem */ = {
 			isa = PBXGroup;
 			children = (
-				7AD8FEFF293EFC5D00663D51 /* BMIItem+CoreDataProperties.swift */,
+				7AD8FF0F293FA84E00663D51 /* BMIItem+CoreDataClass.swift */,
+				7AD8FF10293FA84E00663D51 /* BMIItem+CoreDataProperties.swift */,
 			);
 			path = BMIItem;
 			sourceTree = "<group>";
@@ -161,12 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AD8FF01293EFC5D00663D51 /* BMIItem+CoreDataProperties.swift in Sources */,
+				7AD8FF14293FC02900663D51 /* DetailViewController.swift in Sources */,
 				7AD8FEF2293EE15100663D51 /* BMI_calculator.xcdatamodeld in Sources */,
+				7AD8FF11293FA84E00663D51 /* BMIItem+CoreDataClass.swift in Sources */,
 				7AD8FF06293EFD1100663D51 /* TrackingViewController.swift in Sources */,
 				7AD8FEEC293EE15100663D51 /* ViewController.swift in Sources */,
 				7AD8FF08293EFF0300663D51 /* TrackingTableViewCell.swift in Sources */,
-				7AD8FF00293EFC5D00663D51 /* BMIItem+CoreDataClass.swift in Sources */,
+				7AD8FF12293FA84E00663D51 /* BMIItem+CoreDataProperties.swift in Sources */,
 				7AD8FEE8293EE15100663D51 /* AppDelegate.swift in Sources */,
 				7AD8FEEA293EE15100663D51 /* SceneDelegate.swift in Sources */,
 			);
