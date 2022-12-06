@@ -43,6 +43,9 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            if(items.count <= 0) {
+                performSegue(withIdentifier: "backToHome", sender: items)
+            }
         } catch {
             // Error
         }
@@ -92,9 +95,11 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // passing selected BMI Item to detailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dvc = segue.destination as? DetailViewController
-        let item = sender as! BMIItem
-        dvc?.item = item
+        if(segue.identifier == "goToEditView"){
+            let dvc = segue.destination as? DetailViewController
+            let item = sender as! BMIItem
+            dvc?.item = item
+        }
     }
     
     
